@@ -26,6 +26,17 @@ module Enumerable
 
     select_arr
   end
+
+  def my_all?
+    
+    return to_enum(:my_all?) unless block_given?
+
+    for i in self
+      return false unless yield i
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each
