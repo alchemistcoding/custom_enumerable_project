@@ -60,6 +60,18 @@ module Enumerable
 
     count
   end
+
+  def my_map
+    
+    return to_enum(:my_map) unless block_given?
+
+    map_arr = []
+    for i in self
+      map_arr.push(yield i)
+    end
+
+    map_arr
+  end
 end
 
 # You will first have to define my_each
