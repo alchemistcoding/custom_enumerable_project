@@ -37,6 +37,17 @@ module Enumerable
 
     true
   end
+
+  def my_none?
+
+    return to_enum(:my_none?) unless block_given?
+
+    for i in self
+      return false if yield i
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each
