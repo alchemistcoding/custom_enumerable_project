@@ -48,6 +48,18 @@ module Enumerable
 
     true
   end
+
+  def my_count
+    
+    return self.length unless block_given?
+
+    count = 0
+    for i in self
+      count += 1 if yield i
+    end
+
+    count
+  end
 end
 
 # You will first have to define my_each
