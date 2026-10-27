@@ -72,6 +72,19 @@ module Enumerable
 
     map_arr
   end
+
+  def my_inject(initial_value)
+    
+    return to_enum(:my_inject) unless block_given?
+
+    result = initial_value || self[i]
+    for i in self
+      result = yield(result , i)
+    end
+
+    result
+  end
+  
 end
 
 # You will first have to define my_each
